@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Universal Trust Infrastructure | Mobile Optimized</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e2e8f0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .slide-content {
+            max-width: 1280px;
+            width: 100%;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .slide-content {
+                padding: 2.5rem;
+            }
+        }
+        .slide-number {
+            position: fixed;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            background: #1e293bcc;
+            backdrop-filter: blur(4px);
+            color: white;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            z-index: 50;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 50;
+            background: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .nav-buttons button {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            min-width: 80px;
+        }
+        .nav-buttons button:active {
+            transform: scale(0.96);
+            background: #0f2b6d;
+        }
+        @media (max-width: 480px) {
+            .nav-buttons button {
+                padding: 0.4rem 0.8rem;
+                min-width: 70px;
+                font-size: 0.7rem;
+            }
+        }
+        @media print {
+            .nav-buttons, .slide-number, .no-print {
+                display: none !important;
+            }
+            .slide {
+                min-height: auto;
+                page-break-after: always;
+                padding: 0.5rem;
+            }
+            .slide-content {
+                box-shadow: none;
+                padding: 1rem;
+            }
+            body {
+                background: white;
+            }
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.7rem;
+        }
+        @media (min-width: 640px) {
+            .comparison-table th, .comparison-table td {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+        .comparison-table th {
+            background: #f1f5f9;
+            font-weight: 700;
+        }
+        .badge {
+            background: #eef2ff;
+            color: #1e40af;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .scrollable-x {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem;
+        }
+        h1, h2, h3 {
+            word-break: break-word;
+        }
+        .grid-mobile {
+            display: grid;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-buttons no-print">
+        <button onclick="prevSlide()" aria-label="Previous slide">◀ Prev</button>
+        <span class="text-gray-700 text-sm font-medium mx-1" id="slideIndicator">1/8</span>
+        <button onclick="nextSlide()" aria-label="Next slide">Next ▶</button>
+    </div>
+    <div class="slide-number no-print" id="slideNum">1/8</div>
+
+    <!-- SLIDE 1 – Title & Vision -->
+    <div class="slide" id="slide1">
+        <div class="slide-content">
+            <div class="text-center mb-6">
+                <span class="badge mb-2">Universal Trust Infrastructure</span>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 leading-tight">Content-Centric Document Verification<br>& Workflow Intelligence Platform</h1>
+                <p class="text-base md:text-xl text-blue-700 font-semibold mt-3 italic">“From Trusting Documents to Verifying Proof, Process and Accountability”</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5 mt-4">
+                <div>
+                    <h2 class="text-lg font-bold text-gray-800 mb-2">🎯 Designed For</h2>
+                    <ul class="space-y-1 list-disc pl-5 text-sm sm:text-base text-gray-700">
+                        <li>Governments</li>
+                        <li>Enterprises</li>
+                        <li>Universities & Colleges</li>
+                        <li>Banks</li>
+                        <li>Insurance Companies</li>
+                        <li>Legal Institutions</li>
+                    </ul>
+                </div>
+                <div class="bg-indigo-50 rounded-xl p-4">
+                    <h2 class="text-lg font-bold text-indigo-800 mb-2">🌍 Vision</h2>
+                    <p class="text-gray-700 text-sm sm:text-base mb-2">Create a universal trust layer that verifies:</p>
+                    <ul class="space-y-1 list-disc pl-5 text-sm sm:text-base text-gray-700">
+                        <li>Document Authenticity</li>
+                        <li>Approval Process</li>
+                        <li>Agent Authorization</li>
+                        <li>Timeline History</li>
+                        <li>Content Integrity</li>
+                    </ul>
+                    <p class="text-xs text-indigo-700 mt-2 font-medium">using AI, Blockchain, Semantic Hashing, Knowledge Graphs + Distributed Storage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 – Problems in Existing Systems -->
+    <div class="slide" id="slide2">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">Problems in Existing Systems</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-red-50 p-3 rounded-xl">
+                    <h3 class="font-bold text-red-800 text-base">⚠️ Traditional Systems</h3>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5 text-xs sm:text-sm">
+                        <li>Centralized databases</li>
+                        <li>Insider modification risks</li>
+                        <li>Manual verification</li>
+                        <li>Difficult auditing</li>
+                        <li>Fragmented workflows</li>
+                        <li>Multiple disconnected portals</li>
+                    </ul>
+                </div>
+                <div class="bg-amber-50 p-3 rounded-xl">
+                    <h3 class="font-bold text-amber-800 text-base">🔍 Real Problems</h3>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5 text-xs sm:text-sm">
+                        <li>Fake certificates</li>
+                        <li>Fake property documents</li>
+                        <li>Tender manipulation</li>
+                        <li>Approval fraud</li>
+                        <li>Missing audit trails</li>
+                        <li>Cross-institution verification</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-3 rounded-xl">
+                    <h3 class="font-bold text-gray-800 text-base">🎯 Core Issue</h3>
+                    <p class="text-xs sm:text-sm mt-1">Current systems verify <strong>records</strong>. They do not verify:</p>
+                    <ul class="list-disc pl-4 mt-1 space-y-0.5 text-xs sm:text-sm">
+                        <li>content integrity</li>
+                        <li>workflow authenticity</li>
+                        <li>authorization chain</li>
+                        <li>approval accountability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 – Why Existing Solutions Are Not Enough -->
+    <div class="slide" id="slide3">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">Why Existing Solutions Are Not Enough</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="border rounded-xl p-3">
+                    <h3 class="font-bold text-blue-800 text-lg">📁 Kaveri 2.0</h3>
+                    <p class="font-semibold text-sm mt-1">Provides:</p>
+                    <ul class="list-disc pl-5 text-xs sm:text-sm">
+                        <li>Property registration</li>
+                        <li>Digital workflows</li>
+                        <li>Online records</li>
+                    </ul>
+                    <p class="font-semibold text-sm mt-2 text-red-600">Limitations:</p>
+                    <ul class="list-disc pl-5 text-xs sm:text-sm">
+                        <li>Property-specific</li>
+                        <li>No semantic content verification</li>
+                        <li>No knowledge graph intelligence</li>
+                        <li>No universal workflow infrastructure</li>
+                    </ul>
+                </div>
+                <div class="border rounded-xl p-3">
+                    <h3 class="font-bold text-blue-800 text-lg">⛓️ Blockchain Notary Platforms</h3>
+                    <p class="font-semibold text-sm mt-1">Provide:</p>
+                    <ul class="list-disc pl-5 text-xs sm:text-sm">
+                        <li>File hash storage</li>
+                        <li>Timestamp proof</li>
+                    </ul>
+                    <p class="font-semibold text-sm mt-2 text-red-600">Limitations:</p>
+                    <ul class="list-disc pl-5 text-xs sm:text-sm">
+                        <li>Verify files only</li>
+                        <li>No process verification</li>
+                        <li>No authorization verification</li>
+                        <li>No workflow intelligence</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-5 bg-gray-100 p-3 rounded-lg text-center">
+                <p class="font-bold text-gray-800 text-sm">❌ Problem</p>
+                <p class="text-xs sm:text-sm text-gray-700">Existing solutions prove that a <strong>file exists</strong>. They do not prove: what happened, who approved it, authorization, or content authenticity.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 – Our Innovation -->
+    <div class="slide" id="slide4">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">Our Innovation – Content-Centric Trust</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                    <p class="font-semibold text-gray-700 text-sm">📄 Traditional Verification</p>
+                    <div class="bg-gray-100 p-2 rounded-lg text-center text-sm mb-3">PDF → File Hash → Blockchain</div>
+                    <p class="font-semibold text-gray-700 text-sm mt-2">🔬 Our Verification Model</p>
+                    <div class="bg-indigo-50 p-2 rounded-lg text-xs sm:text-sm leading-relaxed break-words">
+                        Document → OCR Extraction → Content Normalization → Page Hashing → Merkle Tree → Merkle Root → Blockchain
+                    </div>
+                </div>
+                <div class="bg-green-50 p-4 rounded-xl">
+                    <p class="font-bold text-green-800 text-base">✨ Innovation</p>
+                    <p class="text-sm mt-1">Instead of verifying files, <strong>we verify:</strong></p>
+                    <ul class="list-disc pl-5 mt-1 space-y-0.5 text-sm">
+                        <li>Content</li>
+                        <li>Process</li>
+                        <li>Authorization</li>
+                        <li>Timeline</li>
+                        <li>Relationships</li>
+                    </ul>
+                    <p class="mt-2 font-semibold text-green-800 text-sm">Result: Stronger & explainable trust model.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 – Core Smart Contract Architecture -->
+    <div class="slide" id="slide5">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-3">Smart Contract Architecture</h2>
+            <p class="text-center text-gray-600 text-sm mb-3">Trust Layer Smart Contracts</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="border rounded-lg p-3 bg-gray-50">
+                    <h3 class="font-bold text-blue-800 text-sm">📋 Process SC</h3>
+                    <ul class="text-xs list-disc pl-4"><li>Process steps</li><li>Approval workflow</li><li>Assigned agents</li><li>Verification sequence</li></ul>
+                </div>
+                <div class="border rounded-lg p-3 bg-gray-50">
+                    <h3 class="font-bold text-blue-800 text-sm">⏱️ Timeline SC</h3>
+                    <ul class="text-xs list-disc pl-4"><li>Every action</li><li>Every change</li><li>Every approval</li><li>Timestamp history</li></ul>
+                </div>
+                <div class="border rounded-lg p-3 bg-gray-50">
+                    <h3 class="font-bold text-blue-800 text-sm">🔐 Authorization SC</h3>
+                    <ul class="text-xs list-disc pl-4"><li>Who is authorized</li><li>Organization authority</li><li>Permission hierarchy</li></ul>
+                </div>
+                <div class="border rounded-lg p-3 bg-gray-50">
+                    <h3 class="font-bold text-blue-800 text-sm">📜 Document Registry SC</h3>
+                    <ul class="text-xs list-disc pl-4"><li>Merkle Root</li><li>Document Status</li><li>CID Reference</li><li>Verification History</li></ul>
+                </div>
+                <div class="border rounded-lg p-3 bg-gray-50 sm:col-span-2">
+                    <h3 class="font-bold text-blue-800 text-sm">👥 User Registry SC</h3>
+                    <ul class="text-xs list-disc pl-4"><li>Wallet identity</li><li>User role</li><li>Organization relationship</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6 – System Architecture -->
+    <div class="slide" id="slide6">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-3">Hybrid AI + Blockchain Architecture</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-gray-100 p-3 rounded-lg text-xs sm:text-sm font-mono overflow-x-auto whitespace-pre-wrap break-words">
+                    User → Document Upload<br>
+                    ↓<br>
+                    OCR & Semantic Extraction<br>
+                    ↓<br>
+                    Content Hash Generation<br>
+                    ↓<br>
+                    Merkle Tree Creation<br>
+                    ↓<br>
+                    IPFS / Pinata Storage<br>
+                    ↓<br>
+                    Blockchain Verification<br>
+                    ↓<br>
+                    Knowledge Graph Processing<br>
+                    ↓<br>
+                    Timeline Tracking<br>
+                    ↓<br>
+                    Process Validation<br>
+                    ↓<br>
+                    Document Approval
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800 text-base">💾 Storage Strategy</h3>
+                    <div class="mt-2 space-y-2">
+                        <div class="border-l-4 border-blue-600 pl-2">
+                            <p class="font-semibold text-sm">Blockchain Stores:</p>
+                            <p class="text-xs">Merkle Root · Tx Hash · Wallet · Process Records · Timeline Events</p>
+                        </div>
+                        <div class="border-l-4 border-green-600 pl-2">
+                            <p class="font-semibold text-sm">IPFS Stores:</p>
+                            <p class="text-xs">Documents · PDFs · Metadata</p>
+                        </div>
+                        <div class="border-l-4 border-purple-600 pl-2">
+                            <p class="font-semibold text-sm">Knowledge Graph:</p>
+                            <p class="text-xs">Relationships · Context · Entity Connections</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7 – Comparison & Cost Analysis -->
+    <div class="slide" id="slide7">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-3">Comparison & Cost Analysis</h2>
+            <div class="scrollable-x">
+                <table class="comparison-table min-w-[600px] w-full">
+                    <thead>
+                        <tr><th>Feature</th><th>Traditional</th><th>Kaveri 2.0</th><th>Blockchain Notary</th><th>Our Platform</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Digital Records</td><td>✓</td><td>✓</td><td>Partial</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Property Workflow</td><td>✓</td><td>✓</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Multi-Domain Support</td><td>✗</td><td>✗</td><td>Limited</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Timeline Tracking</td><td>✗</td><td>Limited</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Process Verification</td><td>✗</td><td>✗</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Authorization Verification</td><td>✗</td><td>✗</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Content Hashing</td><td>✗</td><td>✗</td><td>✓</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Semantic Verification</td><td>✗</td><td>✗</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Knowledge Graph</td><td>✗</td><td>✗</td><td>✗</td><td class="font-bold text-green-700">✓</td></tr>
+                        <tr><td>Explainable Audit Trail</td><td>✗</td><td>Limited</td><td>Limited</td><td class="font-bold text-green-700">✓</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4">
+                <h3 class="font-bold text-gray-800 text-base">💰 Indicative Infrastructure Cost</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-xs mt-1">
+                    <div>Supabase Pro: $25/mo</div><div>Vercel Pro: $20/mo</div>
+                    <div>Filecoin: ~$4.99/TB/mo</div><div>Base/Polygon tx: few cents</div>
+                    <div>Pinata: usage-based</div>
+                </div>
+                <div class="mt-2 bg-blue-50 p-2 rounded-lg text-center text-blue-800 text-xs font-medium">Key Advantage: Only proofs stored on-chain → drastically reduced costs.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8 – Business Impact & Future Vision -->
+    <div class="slide" id="slide8">
+        <div class="slide-content">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-3">Business Impact & Future Vision</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="bg-gray-50 p-2 rounded"><h3 class="font-bold text-sm">🏛️ Governments</h3><ul class="text-xs list-disc pl-4"><li>Reduced fraud</li><li>Transparent approvals</li><li>Accountability</li></ul></div>
+                <div class="bg-gray-50 p-2 rounded"><h3 class="font-bold text-sm">🏢 Enterprises</h3><ul class="text-xs list-disc pl-4"><li>Faster verification</li><li>Workflow tracking</li><li>Compliance</li></ul></div>
+                <div class="bg-gray-50 p-2 rounded"><h3 class="font-bold text-sm">🎓 Universities</h3><ul class="text-xs list-disc pl-4"><li>Certificate authenticity</li><li>Degree verification</li><li>Student trust records</li></ul></div>
+            </div>
+            <div class="mt-3 bg-gray-100 p-2 rounded-lg">
+                <p class="font-bold text-sm">Supported Industries</p>
+                <p class="text-xs">Property Registration · Degree Verification · Scholarship Approval · Tender Management · Tax Filing · Banking · Insurance · Legal · Government Services</p>
+            </div>
+            <div class="mt-3 bg-indigo-50 p-3 rounded-lg text-center">
+                <p class="font-bold text-indigo-800 text-sm">🌟 Vision</p>
+                <p class="text-xs">Build the world’s first <strong>Universal Trust Infrastructure</strong> where every document, approval, process and authorization becomes:</p>
+                <p class="text-xs mt-1">✓ Verifiable ✓ Traceable ✓ Explainable ✓ Tamper Resistant ✓ Cryptographically Proven</p>
+                <p class="font-semibold text-center mt-2 italic text-sm">“Trust the Proof, Not the Paper.”</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function updateVisibility() {
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide${i}`);
+                if (slide) {
+                    slide.style.display = i === currentSlide ? 'flex' : 'none';
+                }
+            }
+            document.getElementById('slideIndicator').innerText = `${currentSlide}/${totalSlides}`;
+            document.getElementById('slideNum').innerText = `${currentSlide}/${totalSlides}`;
+            // Reset scroll position on slide change
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateVisibility();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateVisibility();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.body.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        document.body.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        });
+
+        updateVisibility();
+    </script>
+</body>
+</html>
